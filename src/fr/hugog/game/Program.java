@@ -1,6 +1,8 @@
 package fr.hugog.game;
 
-import fr.hugog.game.map.*;
+
+import fr.hugog.game.Element.Hero;
+import fr.hugog.game.map.Map;
 
 public class Program {
 
@@ -8,9 +10,9 @@ public class Program {
 		
 		Map map = new Map();
 		
-		map.initialiserCarte();
-		
 		map.afficherCarte();
+		
+		
 		
 	}
 

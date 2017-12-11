@@ -23,17 +23,9 @@ public class Map {
 		randomPositionY = (int)(Math.random() * (20-0)) + 0;
 	}
 	
-	public void createElement(int elementAmount) {
-		for (int i = 0; i <= elementAmount; i++) {
-			resetRandom();
-			map[randomPositionX][randomPositionY] = new Element("1 ");
-		}
-	}
-	
 	public Element[][] initialiserCarte() {
 		
 		Element[][] map = new Element[dimension][dimension];
-		
 
 		for (int i = 0; i < dimension; i++) {
 			for (int j = 0; j < dimension; j++) {
@@ -41,7 +33,12 @@ public class Map {
 			}
 		}
 		
-		
+		for (int i = 0; i <= 5; i++) {
+			resetRandom();
+			map[randomPositionX][randomPositionY] = new Element("1 ");
+			resetRandom();
+			map[randomPositionX][randomPositionY] = new Element("2 ");
+		}
 		
 		for (int i = 0; i <= 10; i++) {
 			resetRandom();
@@ -67,7 +64,8 @@ public class Map {
 			map[randomPositionX][randomPositionY] = new Element("8 ");
 		}
 		
-		map[0][0] = new Element("X ");
+		map[0][0] = new Hero("X ");
+		
 		return map;
 	}
 	
@@ -80,5 +78,9 @@ public class Map {
 			System.out.println();
 		}
 	}
+	
+	public Element[][] getMap() {
+		return map;
+}
 	
 }
