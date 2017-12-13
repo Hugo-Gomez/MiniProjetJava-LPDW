@@ -13,33 +13,28 @@ public class Map {
 	
 	public Map() {
 		this.dimension = 20;
-		ArrayList<Element> element = Map.initialiserElement();
-		this.map = initialiserCarte(element);
+		ArrayList<Element> elements = Map.initialiserElement();
+		this.map = initialiserCarte(elements);
 	}
 	
 	public int getDimension() {
 		return dimension;
 	}
 	
-	public void resetRandom() {
-		randomPositionX = (int)(Math.random() * (20-0)) + 0;
-		randomPositionY = (int)(Math.random() * (20-0)) + 0;
-	}
-	
 	public Element[][] initialiserCarte(ArrayList<Element> element) {
 		
 		Element[][] map = new Element[dimension][dimension];
 		Random random = new Random();
-		int nombreAleatoire;
+		int randomNumber;
 
 		for (int i = 0; i < dimension; i++) {
 			for (int j = 0; j < dimension; j++) {
 				if (i == 0 && j == 0) {
 					map[i][j] = new Hero();
 				} else {
-					nombreAleatoire = random.nextInt(element.size());
-					map[i][j] = element.get(nombreAleatoire);
-					element.remove(nombreAleatoire);
+					randomNumber = random.nextInt(element.size());
+					map[i][j] = element.get(randomNumber);
+					element.remove(randomNumber);
 				}
 			}
 		}
@@ -47,35 +42,35 @@ public class Map {
 	}
 		
 	public static ArrayList<Element> initialiserElement() {
-		ArrayList<Element> element = new ArrayList<>();
+		ArrayList<Element> elements = new ArrayList<>();
 		for (int i = 0; i < 5 ; i++) {
-			element.add(new Flower());
+			elements.add(new Flower());
 		}
 		for (int i = 0; i < 5 ; i++) {
-			element.add(new Tree());
+			elements.add(new Tree());
 		}
 		for (int i = 0; i < 10 ; i++) {
-			element.add(new Rock());
+			elements.add(new Rock());
 		}
 		for (int i = 0; i < 3 ; i++) {
-			element.add(new Key());
+			elements.add(new Key());
 		}
 		for (int i = 0; i < 3 ; i++) {
-			element.add(new Lock());
+			elements.add(new Lock());
 		}
 		for (int i = 0; i < 20 ; i++) {
-			element.add(new Gold());
+			elements.add(new Gold());
 		}
 		for (int i = 0; i < 10 ; i++) {
-			element.add(new Trap());
+			elements.add(new Trap());
 		}
 		for (int i = 0; i < 15 ; i++) {
-			element.add(new Monster());
+			elements.add(new Monster());
 		}
 		for (int i = 0; i < 329 ; i++) {
-			element.add(new Grass());
+			elements.add(new Grass());
 		}
-		return element;
+		return elements;
 	}
 	
 	public void afficherCarte() {

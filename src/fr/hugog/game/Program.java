@@ -1,5 +1,6 @@
 package fr.hugog.game;
 
+import fr.hugog.game.Element.Hero;
 import fr.hugog.game.map.Map;
 
 public class Program {
@@ -10,7 +11,7 @@ public class Program {
 		
 		map.afficherCarte();
 		
-		
+		Hero hero = (Hero) map.getMap()[0][0];
 		
 	}
 
