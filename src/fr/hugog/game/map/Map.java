@@ -1,5 +1,8 @@
 package fr.hugog.game.map;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import fr.hugog.game.Element.*;
 
 public class Map {
@@ -10,7 +13,8 @@ public class Map {
 	
 	public Map() {
 		this.dimension = 20;
-		this.map = initialiserCarte();
+		ArrayList<Element> element = Map.initialiserElement();
+		this.map = initialiserCarte(element);
 	}
 	
 	public int getDimension() {
@@ -22,55 +26,56 @@ public class Map {
 		randomPositionY = (int)(Math.random() * (20-0)) + 0;
 	}
 	
-	public Element[][] initialiserCarte() {
+	public Element[][] initialiserCarte(ArrayList<Element> element) {
 		
 		Element[][] map = new Element[dimension][dimension];
+		Random random = new Random();
+		int nombreAleatoire;
 
 		for (int i = 0; i < dimension; i++) {
 			for (int j = 0; j < dimension; j++) {
 				if (i == 0 && j == 0) {
 					map[i][j] = new Hero();
 				} else {
-					map[i][j] = new Grass();
+					nombreAleatoire = random.nextInt(element.size());
+					map[i][j] = element.get(nombreAleatoire);
+					element.remove(nombreAleatoire);
 				}
 			}
 		}
-		
-		for (int i = 0; i <= 5; i++) {
-			resetRandom();
-			map[randomPositionX][randomPositionY] = new Flower();
-			resetRandom();
-			map[randomPositionX][randomPositionY] = new Tree();
-		}
-		
-		for (int i = 0; i <= 10; i++) {
-			resetRandom();
-			map[randomPositionX][randomPositionY] = new Rock();
-			resetRandom();
-			map[randomPositionX][randomPositionY] = new Trap();
-		}
-		
-		for (int i = 0; i <= 3; i++) {
-			resetRandom();
-			map[randomPositionX][randomPositionY] = new Key();
-			resetRandom();
-			map[randomPositionX][randomPositionY] = new Lock();
-		}
-		
-		for (int i = 0; i <= 20; i++) {
-			resetRandom();
-			map[randomPositionX][randomPositionY] = new Gold();
-		}
-		
-		for (int i = 0; i <= 15; i++) {
-			resetRandom();
-			map[randomPositionX][randomPositionY] = new Monster();
-		}
-		
-		
-		
-		
 		return map;
+	}
+		
+	public static ArrayList<Element> initialiserElement() {
+		ArrayList<Element> element = new ArrayList<>();
+		for (int i = 0; i < 5 ; i++) {
+			element.add(new Flower());
+		}
+		for (int i = 0; i < 5 ; i++) {
+			element.add(new Tree());
+		}
+		for (int i = 0; i < 10 ; i++) {
+			element.add(new Rock());
+		}
+		for (int i = 0; i < 3 ; i++) {
+			element.add(new Key());
+		}
+		for (int i = 0; i < 3 ; i++) {
+			element.add(new Lock());
+		}
+		for (int i = 0; i < 20 ; i++) {
+			element.add(new Gold());
+		}
+		for (int i = 0; i < 10 ; i++) {
+			element.add(new Trap());
+		}
+		for (int i = 0; i < 15 ; i++) {
+			element.add(new Monster());
+		}
+		for (int i = 0; i < 329 ; i++) {
+			element.add(new Grass());
+		}
+		return element;
 	}
 	
 	public void afficherCarte() {
