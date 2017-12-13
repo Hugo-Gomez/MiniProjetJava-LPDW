@@ -7,7 +7,6 @@ public class Map {
 	int dimension;
 	int randomPositionX, randomPositionY;
 	Element[][] map;
-	Element hero;
 	
 	public Map() {
 		this.dimension = 20;
@@ -29,42 +28,47 @@ public class Map {
 
 		for (int i = 0; i < dimension; i++) {
 			for (int j = 0; j < dimension; j++) {
-				map[i][j] = new Element("0 ");
+				if (i == 0 && j == 0) {
+					map[i][j] = new Hero();
+				} else {
+					map[i][j] = new Grass();
+				}
 			}
 		}
 		
 		for (int i = 0; i <= 5; i++) {
 			resetRandom();
-			map[randomPositionX][randomPositionY] = new Element("1 ");
+			map[randomPositionX][randomPositionY] = new Flower();
 			resetRandom();
-			map[randomPositionX][randomPositionY] = new Element("2 ");
+			map[randomPositionX][randomPositionY] = new Tree();
 		}
 		
 		for (int i = 0; i <= 10; i++) {
 			resetRandom();
-			map[randomPositionX][randomPositionY] = new Element("3 ");
+			map[randomPositionX][randomPositionY] = new Rock();
 			resetRandom();
-			map[randomPositionX][randomPositionY] = new Element("7 ");
+			map[randomPositionX][randomPositionY] = new Trap();
 		}
 		
 		for (int i = 0; i <= 3; i++) {
 			resetRandom();
-			map[randomPositionX][randomPositionY] = new Element("4 ");
+			map[randomPositionX][randomPositionY] = new Key();
 			resetRandom();
-			map[randomPositionX][randomPositionY] = new Element("6 ");
+			map[randomPositionX][randomPositionY] = new Lock();
 		}
 		
 		for (int i = 0; i <= 20; i++) {
 			resetRandom();
-			map[randomPositionX][randomPositionY] = new Element("5 ");
+			map[randomPositionX][randomPositionY] = new Gold();
 		}
 		
 		for (int i = 0; i <= 15; i++) {
 			resetRandom();
-			map[randomPositionX][randomPositionY] = new Element("8 ");
+			map[randomPositionX][randomPositionY] = new Monster();
 		}
 		
-		map[0][0] = new Hero("X ");
+		
+		
 		
 		return map;
 	}

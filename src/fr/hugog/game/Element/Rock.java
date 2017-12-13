@@ -1,5 +1,9 @@
 package fr.hugog.game.Element;
 
-public class Rock {
+public class Rock extends Element{
+	
+	public Rock() {
+		super("3 ");
+	}
 
 }

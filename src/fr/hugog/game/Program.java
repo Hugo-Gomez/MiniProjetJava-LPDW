@@ -1,7 +1,5 @@
 package fr.hugog.game;
 
-
-import fr.hugog.game.Element.Hero;
 import fr.hugog.game.map.Map;
 
 public class Program {
