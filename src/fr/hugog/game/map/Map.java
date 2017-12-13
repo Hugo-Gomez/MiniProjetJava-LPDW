@@ -68,7 +68,7 @@ public class Map {
 			elements.add(new Monster());
 		}
 		for (int i = 0; i < 329 ; i++) {
-			elements.add(new Grass());
+			elements.add(new Grass(0, 0));
 		}
 		return elements;
 	}
@@ -85,6 +85,43 @@ public class Map {
 	
 	public Element[][] getMap() {
 		return map;
+	}
+	
+	public void setMap(Element[][] map) {
+		this.map = map;
+	}
+	
+	public String getElement(int m, Hero hero) {
+		switch (m) {
+		case 8: 
+			
+			if(!(hero.getX() - 1 <= 0)) {
+				return this.map[hero.getHeroX() - 1][hero.getHeroY()].getSymbol();
+			}		
+			return "9";
+		case 2:
+			if(!(hero.getX() + 1 >= 19)) {
+				return this.map[hero.getHeroX() + 1][hero.getHeroY()].getSymbol();
+			}		
+			return "9";
+		case 4:
+			if(!(hero.getY() - 1 <= 0)) {
+				return this.map[hero.getHeroX()][hero.getHeroY() - 1].getSymbol();
+			}		
+			return "9";
+			
+		case 6:
+			if(!(hero.getY() + 1 >= 19)) {
+				return this.map[hero.getHeroX()][hero.getHeroY() + 1].getSymbol();
+			}		
+			return "9";
+		case 0: 
+			return "0";
+		
+		default:
+			System.out.println("Ce mouvement n'est pas valide");
+		}
+		return "9";
 }
 	
 }

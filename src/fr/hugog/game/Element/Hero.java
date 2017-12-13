@@ -11,7 +11,7 @@ public class Hero extends Element {
 	private int locks = 0;
 	
 	public Hero() {
-		super("X ");
+		super("X");
 		this.health = 10;
 		this.gold = 0;
 		this.keys = 0;
@@ -60,6 +60,56 @@ public class Hero extends Element {
 		this.locks = locks;
 	}
 	
-	
+	public Element[][] move(int m, Element[][] map) {
+		switch (m) {
+		case 8: 
+			if(!(this.getHeroX() - 1 <= 0)) {
+				map[this.getHeroX()][this.getHeroY()] = new Grass(this.getHeroX(), this.getHeroY());
+				map[this.getHeroX()-1][this.getHeroY()] = this;
+				this.setHeroX(this.getHeroX()-1);
+			}
+		
+			return map;
+		case 2:
+			
+			
+			if(!(this.getHeroX() + 1 >= 20)) {
+				map[this.getHeroX()][this.getHeroY()] = new Grass(this.getHeroX(), this.getHeroY());
+				map[this.getHeroX()+1][this.getHeroY()] = this;
+				this.setHeroX(this.getHeroX()+1);
+			}		
+			
+			return map;
+		case 4:
+
+		
+			if(!(this.getY() - 1 <= 0)) {
+				
+				map[this.getHeroX()][this.getHeroY()] = new Grass(this.getHeroX(), this.getHeroY());
+				map[this.getHeroX()][this.getHeroY()-1] = this;
+				this.setHeroY(this.getY()-1);
+			}		
+			
+			
+			return map;
+		case 6:
+			if(!(this.getY() + 1 >= 20)) {
+				map[this.getHeroX()][this.getHeroY()] = new Grass(this.getHeroX(), this.getHeroY());
+				map[this.getHeroX()][this.getHeroY()+1] = this;
+				this.setHeroY(this.getHeroY()+1);
+			}		
+			return map;
+		case 0: 
+			
+			break;
+		
+		default:
+			System.out.println("You can't move this way");
+			return map;
+			
+			
+		}
+		return null;
+}	
 
 }
