@@ -62,45 +62,41 @@ public class Hero extends Element {
 	
 	public Element[][] move(int m, Element[][] map) {
 		switch (m) {
+		
 		case 8: 
-			if(!(this.getHeroX() - 1 <= 0)) {
+			if(!(this.getHeroX() - 1 <= 0)) { // not functionnal
 				map[this.getHeroX()][this.getHeroY()] = new Grass(this.getHeroX(), this.getHeroY());
 				map[this.getHeroX()-1][this.getHeroY()] = this;
 				this.setHeroX(this.getHeroX()-1);
 			}
-		
 			return map;
+			
 		case 2:
-			
-			
 			if(!(this.getHeroX() + 1 >= 20)) {
 				map[this.getHeroX()][this.getHeroY()] = new Grass(this.getHeroX(), this.getHeroY());
 				map[this.getHeroX()+1][this.getHeroY()] = this;
 				this.setHeroX(this.getHeroX()+1);
-			}		
-			
+			}
 			return map;
+			
 		case 4:
-
-		
-			if(!(this.getY() - 1 <= 0)) {
+			if(!(this.getHeroY() - 1 <= 0)) { // not functionnal
 				
 				map[this.getHeroX()][this.getHeroY()] = new Grass(this.getHeroX(), this.getHeroY());
 				map[this.getHeroX()][this.getHeroY()-1] = this;
-				this.setHeroY(this.getY()-1);
+				this.setHeroY(this.getHeroY()-1);
 			}		
-			
-			
 			return map;
+			
 		case 6:
-			if(!(this.getY() + 1 >= 20)) {
+			if(!(this.getHeroY() + 1 >= 20)) {
 				map[this.getHeroX()][this.getHeroY()] = new Grass(this.getHeroX(), this.getHeroY());
 				map[this.getHeroX()][this.getHeroY()+1] = this;
 				this.setHeroY(this.getHeroY()+1);
 			}		
 			return map;
-		case 0: 
 			
+		case 0:
 			break;
 		
 		default:

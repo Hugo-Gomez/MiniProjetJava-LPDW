@@ -78,6 +78,7 @@ public class Map {
 		for (int i = 0; i < this.getDimension(); i++) {
 			for (int j = 0; j < this.getDimension(); j++) {
 				System.out.print(this.map[i][j].getSymbol());
+				System.out.print(" ");
 			}
 			System.out.println();
 		}
@@ -89,6 +90,14 @@ public class Map {
 	
 	public void setMap(Element[][] map) {
 		this.map = map;
+	}
+	
+	public static void printInventory(Hero hero) {
+		System.out.println();
+		System.out.println("-----------");
+		System.out.println();
+		System.out.println("LifePoints: " + hero.getHealth() + " // Gold : " + hero.getGold() + " // Keys : " + hero.getKeys() + " // Locks : " + hero.getLocks());
+		System.out.println("Make your move : ");
 	}
 	
 	public String getElement(int m, Hero hero) {

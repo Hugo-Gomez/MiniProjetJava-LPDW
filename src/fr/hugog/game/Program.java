@@ -15,6 +15,8 @@ public class Program {
 		
 		Hero hero = (Hero) map.getMap()[0][0];
 		
+		Map.printInventory(hero);
+		
 		int mouvement;
 		int nextElement;
 		int gameStatus = 1;
@@ -72,6 +74,8 @@ public class Program {
 			}
 			System.out.println();
 			map.afficherCarte();
+			
+			Map.printInventory(hero);
 		}
 		
 	}
