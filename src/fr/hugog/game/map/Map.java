@@ -96,7 +96,7 @@ public class Map {
 		System.out.println();
 		System.out.println("-----------");
 		System.out.println();
-		System.out.println("LifePoints: " + hero.getHealth() + " // Gold : " + hero.getGold() + " // Keys : " + hero.getKeys() + " // Locks : " + hero.getLocks());
+		System.out.println("LifePoints : " + hero.getHealth() + " // Gold : " + hero.getGold() + " // Keys : " + hero.getKeys() + " // Locks : " + hero.getLocks());
 		System.out.println("Make your move : ");
 	}
 	
@@ -129,8 +129,8 @@ public class Map {
 		} catch (ArrayIndexOutOfBoundsException e) {
 			System.err.println("Vous sortez du tableau");
 		}
-		return this.map[hero.getHeroX()][hero.getHeroY()].getSymbol();
-        }
+		return "3";
+     }
 
 	
 }

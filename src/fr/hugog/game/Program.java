@@ -18,7 +18,7 @@ public class Program {
 		Map.printInventory(hero);
 		
 		int mouvement;
-		int nextElement;
+		int nextElement = 0;
 		int gameStatus = 1;
 			
 			
@@ -27,13 +27,18 @@ public class Program {
 			mouvement = scanner.nextInt();
 			
 			if(mouvement == 0) {
-				System.out.println("Did you gave up ?");
+				System.out.println("Did you give up ?");
 				gameStatus = -1;
 				break;
 			}
 			
-			nextElement = Integer.parseInt(map.getElement(mouvement, hero));
+			try {
+				nextElement = Integer.parseInt(map.getElement(mouvement, hero));
+			} catch ( NumberFormatException e) {
+				
+			}
 			System.out.println(nextElement);
+			System.out.println("fdppppppp6");
 			if(!(nextElement == 9 || nextElement == 2 ||  nextElement == 3 || (nextElement == 6 && hero.getKeys() < 1))) {
 				switch(nextElement) {
 					case 0: 

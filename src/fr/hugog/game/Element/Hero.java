@@ -98,7 +98,6 @@ public class Hero extends Element {
 			return null;
 			
 		} catch (ArrayIndexOutOfBoundsException e) {
-            System.err.println("Vous sortez du tableau");
         }
 		return map;
 		
