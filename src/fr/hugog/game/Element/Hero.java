@@ -61,51 +61,48 @@ public class Hero extends Element {
 	}
 	
 	public Element[][] move(int m, Element[][] map) {
-		switch (m) {
-		
-		case 8: 
-			if(!(this.getHeroX() - 1 <= 0)) { // not functionnal
+		try { 
+			switch (m) {
+			
+			case 8: 
 				map[this.getHeroX()][this.getHeroY()] = new Grass(this.getHeroX(), this.getHeroY());
 				map[this.getHeroX()-1][this.getHeroY()] = this;
 				this.setHeroX(this.getHeroX()-1);
-			}
-			return map;
-			
-		case 2:
-			if(!(this.getHeroX() + 1 >= 20)) {
+				return map;
+				
+			case 2:
 				map[this.getHeroX()][this.getHeroY()] = new Grass(this.getHeroX(), this.getHeroY());
 				map[this.getHeroX()+1][this.getHeroY()] = this;
 				this.setHeroX(this.getHeroX()+1);
-			}
-			return map;
-			
-		case 4:
-			if(!(this.getHeroY() - 1 <= 0)) { // not functionnal
+				return map;
 				
+			case 4:
 				map[this.getHeroX()][this.getHeroY()] = new Grass(this.getHeroX(), this.getHeroY());
 				map[this.getHeroX()][this.getHeroY()-1] = this;
 				this.setHeroY(this.getHeroY()-1);
-			}		
-			return map;
-			
-		case 6:
-			if(!(this.getHeroY() + 1 >= 20)) {
+				return map;
+				
+			case 6:
 				map[this.getHeroX()][this.getHeroY()] = new Grass(this.getHeroX(), this.getHeroY());
 				map[this.getHeroX()][this.getHeroY()+1] = this;
 				this.setHeroY(this.getHeroY()+1);
-			}		
-			return map;
+				return map;
+				
+			case 0:
+				break;
 			
-		case 0:
-			break;
+			default:
+				System.out.println("You can't move this way");
+				return map;
+			}
+			return null;
+			
+		} catch (ArrayIndexOutOfBoundsException e) {
+            System.err.println("Vous sortez du tableau");
+        }
+		return map;
 		
-		default:
-			System.out.println("You can't move this way");
-			return map;
-			
-			
-		}
-		return null;
+		
 }	
 
 }

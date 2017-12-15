@@ -101,36 +101,36 @@ public class Map {
 	}
 	
 	public String getElement(int m, Hero hero) {
-		switch (m) {
-		case 8: 
-			
-			if(!(hero.getX() - 1 <= 0)) {
-				return this.map[hero.getHeroX() - 1][hero.getHeroY()].getSymbol();
-			}		
-			return "9";
-		case 2:
-			if(!(hero.getX() + 1 >= 19)) {
-				return this.map[hero.getHeroX() + 1][hero.getHeroY()].getSymbol();
-			}		
-			return "9";
-		case 4:
-			if(!(hero.getY() - 1 <= 0)) {
-				return this.map[hero.getHeroX()][hero.getHeroY() - 1].getSymbol();
-			}		
-			return "9";
-			
-		case 6:
-			if(!(hero.getY() + 1 >= 19)) {
-				return this.map[hero.getHeroX()][hero.getHeroY() + 1].getSymbol();
-			}		
-			return "9";
-		case 0: 
-			return "0";
 		
-		default:
-			System.out.println("Ce mouvement n'est pas valide");
+		try { 
+			switch (m) {
+			case 8: 
+				return this.map[hero.getHeroX() - 1][hero.getHeroY()].getSymbol();
+			case 2:
+				
+				return this.map[hero.getHeroX() + 1][hero.getHeroY()].getSymbol();
+						
+			case 4:
+				
+				return this.map[hero.getHeroX()][hero.getHeroY() - 1].getSymbol();
+						
+			case 6:
+				
+				return this.map[hero.getHeroX()][hero.getHeroY() + 1].getSymbol();
+					
+			case 0: 
+				return "0";
+			
+			default:
+				System.out.println("Ce mouvement n'est pas valide");
+			}
+			return "9";
+		
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.err.println("Vous sortez du tableau");
 		}
-		return "9";
-}
+		return this.map[hero.getHeroX()][hero.getHeroY()].getSymbol();
+        }
+
 	
 }

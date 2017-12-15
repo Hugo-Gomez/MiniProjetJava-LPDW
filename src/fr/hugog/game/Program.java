@@ -33,7 +33,7 @@ public class Program {
 			}
 			
 			nextElement = Integer.parseInt(map.getElement(mouvement, hero));
-			
+			System.out.println(nextElement);
 			if(!(nextElement == 9 || nextElement == 2 ||  nextElement == 3 || (nextElement == 6 && hero.getKeys() < 1))) {
 				switch(nextElement) {
 					case 0: 
