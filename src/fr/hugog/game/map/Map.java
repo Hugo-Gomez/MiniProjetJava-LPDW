@@ -7,7 +7,7 @@ import fr.hugog.game.Element.*;
 
 public class Map {
 	
-	int dimension;
+	private int dimension;
 	int randomPositionX, randomPositionY;
 	/**
      * @see Element
@@ -28,6 +28,26 @@ public class Map {
 	
 	public int getDimension() {
 		return dimension;
+	}
+	
+	/**
+     * Return the map
+     *
+     * @return map
+     */
+	
+	public Element[][] getMap() {
+		return map;
+	}
+	
+	/**
+     * Update the map
+     *
+     * @param map
+     */
+	
+	public void setMap(Element[][] map) {
+		this.map = map;
 	}
 	
 	/**
@@ -111,26 +131,6 @@ public class Map {
 	}
 	
 	/**
-     * Return the map
-     *
-     * @return map
-     */
-	
-	public Element[][] getMap() {
-		return map;
-	}
-	
-	/**
-     * Update the map
-     *
-     * @param map
-     */
-	
-	public void setMap(Element[][] map) {
-		this.map = map;
-	}
-	
-	/**
      * Print the inventory of the hero and his health
      * 
      * @param hero
@@ -140,7 +140,7 @@ public class Map {
 		System.out.println();
 		System.out.println("-----------");
 		System.out.println();
-		System.out.println("LifePoints : " + hero.getHealth() + " // Gold : " + hero.getGold() + " // Keys : " + hero.getKeys() + " // Locks : " + hero.getLocks());
+		System.out.println("LifePoints : " + hero.getHealth() + " // Gold : " + hero.getGold() + " // Keys : " + hero.getKeys());
 		System.out.println("Make your move : ");
 	}
 	
@@ -155,27 +155,23 @@ public class Map {
 		try { 
 			switch (m) {
 			case 8: 
-				
 				return this.map[hero.getHeroX() - 1][hero.getHeroY()].getSymbol();
 				
 			case 2:
-				
 				return this.map[hero.getHeroX() + 1][hero.getHeroY()].getSymbol();
 						
 			case 4:
-				
 				return this.map[hero.getHeroX()][hero.getHeroY() - 1].getSymbol();
 						
 			case 6:
-				
 				return this.map[hero.getHeroX()][hero.getHeroY() + 1].getSymbol();
 					
 			case 0: 
-				
 				return "0";
 			
 			default:
 				System.err.println("This mouvement ain't authorize");
+				
 			}
 			return "9";
 		

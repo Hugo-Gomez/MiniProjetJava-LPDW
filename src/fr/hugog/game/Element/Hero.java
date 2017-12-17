@@ -200,14 +200,10 @@ public class Hero extends Element {
 					
 				return map;
 			}
-			
 			return null;
-			
 		} catch (ArrayIndexOutOfBoundsException e) {
         }
 		return map;
-		
-		
 	}	
 
 }

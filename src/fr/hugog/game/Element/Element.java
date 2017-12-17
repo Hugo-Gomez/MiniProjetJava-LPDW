@@ -3,7 +3,7 @@ package fr.hugog.game.Element;
 public class Element {
 
 	int x, y;
-	String symbol; 
+	private String symbol; 
 
 	public Element(String symbol) {
 		this.symbol = symbol;
