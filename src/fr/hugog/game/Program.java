@@ -14,6 +14,8 @@ public class Program {
 		int gameStatus = 1;
 		String name;
 		
+		Window window = new Window();
+		
 		Map map = new Map();
 		
 		Hero hero = (Hero) map.getMap()[0][0];
