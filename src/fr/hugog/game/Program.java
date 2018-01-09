@@ -16,10 +16,13 @@ public class Program {
 		
 		Window window = new Window();
 		
+		window.printHomePan();
+		
 		Map map = new Map();
 		
 		Hero hero = (Hero) map.getMap()[0][0];
 		
+		@SuppressWarnings("resource")
 		Scanner nameScan = new Scanner(System.in);
 		
 		System.out.println("Welcome to the game !");
@@ -44,6 +47,7 @@ public class Program {
 		Map.printInventory(hero);
 			
 		while(gameStatus == 1) {
+			@SuppressWarnings("resource")
 			Scanner moveScan = new Scanner(System.in);
 			mouvement = moveScan.nextInt();
 			

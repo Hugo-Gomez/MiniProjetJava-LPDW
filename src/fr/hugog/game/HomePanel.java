@@ -10,7 +10,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
-public class Panel extends JPanel {
+public class HomePanel extends JPanel {
 	
 	/**
 	 * 
@@ -21,15 +21,15 @@ public class Panel extends JPanel {
 		
 		try {
 
-		      Image bg = ImageIO.read(new File("beige-bg.jpg"));
+	      Image bg = ImageIO.read(new File("beige-bg.jpg"));
 
-		      g.drawImage(bg, 0, 0, this);
+	      g.drawImage(bg, 0, 0, this);
 
-		    } catch (IOException e) {
+	    } catch (IOException e) {
 
-		      e.printStackTrace();
+	      e.printStackTrace();
 
-		    } 
+	    } 
 
 	    Font title = new Font("Courier", Font.BOLD, 20);
 	    Font rules = new Font("Courier", Font.BOLD, 12);
@@ -56,7 +56,7 @@ public class Panel extends JPanel {
 	    g.setColor(Color.black);	   
 	    
 	    g.drawString("What's your name ?", 300, 350);
-
+	    
 	  }  
 
 }
