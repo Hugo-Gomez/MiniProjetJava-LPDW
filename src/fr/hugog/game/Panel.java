@@ -55,7 +55,7 @@ public class Panel extends JPanel {
 	    g.setFont(name);
 	    g.setColor(Color.black);	   
 	    
-	    g.drawString("What's your name ? : ", 300, 350);
+	    g.drawString("What's your name ?", 300, 350);
 
 	  }  
 

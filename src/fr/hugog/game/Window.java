@@ -1,8 +1,6 @@
 package fr.hugog.game;
 import java.awt.Color;
 import java.awt.Dimension;
-
-import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -24,15 +22,16 @@ public class Window extends JFrame {
 	    JPanel pan = new Panel();
 	    JTextField nameInput = new JTextField("");
 	    JButton startBtn = new JButton("Go !");
-	    Box nameStart = Box.createVerticalBox();
 	    
 	    nameInput.setPreferredSize(new Dimension(200, 30));
 	    nameInput.setForeground(Color.black);
 	    
-	    nameStart.add(nameInput);
-	    nameStart.add(startBtn);
+	    pan.add(nameInput);
+	    pan.add(startBtn);
 	    
-	    pan.add(nameStart);
+	    pan.setLayout(null);
+	    nameInput.setBounds(285, 400, 200, 30);
+	    startBtn.setBounds(345, 440, 70, 30);
 	    
 	    this.setContentPane(pan);
 		
