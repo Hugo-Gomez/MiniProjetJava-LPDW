@@ -2,14 +2,21 @@ package fr.hugog.game;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Graphics2D;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.BevelBorder;
+
+import fr.hugog.game.Element.Hero;
+import fr.hugog.game.map.Map;
 
 public class Window extends JFrame implements ActionListener {
 	
@@ -46,7 +53,6 @@ public class Window extends JFrame implements ActionListener {
 	    nameInput.setBounds(285, 400, 200, 30);
 	    startBtn.setBounds(345, 440, 70, 30);
 	    
-	    this.setContentPane(gamePan);
 	    this.setContentPane(homePan);
 		
 		this.setVisible(true);
@@ -56,8 +62,26 @@ public class Window extends JFrame implements ActionListener {
     {
 		final String heroName = nameInput.getText();
 		gamePan.setLayout(new FlowLayout());
-		inGameHeroName.setText(heroName + "'s Game");
+		inGameHeroName.setForeground(Color.black); 
+		inGameHeroName.setText("<html><font color='red' size='20'>" + heroName + "'s Game</font></html>");
+		
+		Map map = new Map();
+		
+		Hero hero = (Hero) map.getMap()[0][0];
+
+        this.setContentPane(gamePan);
+		
 		gamePan.add(inGameHeroName);
+		
+		for (int i = 0; i < 20; i++) {
+			for (int j = 0; j < 20; j++) {
+				JLabel l = new JLabel("" + i, JLabel.CENTER);
+	            l.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+	            l.setFont(l.getFont().deriveFont(20f));
+	            gamePan.add(l);
+			}
+		}
+		
 	    this.setContentPane(gamePan);
 		
 		this.setVisible(true);
@@ -65,7 +89,12 @@ public class Window extends JFrame implements ActionListener {
 	
 	public void actionPerformed(ActionEvent ae)
     {
-        this.printGamePan();
+		if (nameInput.getText().isEmpty()) {
+			nameInput.setText("Please enter your name");
+		}
+		else {
+			this.printGamePan();
+		}
     }
 
 }

@@ -22,7 +22,6 @@ public class Program {
 		
 		Hero hero = (Hero) map.getMap()[0][0];
 		
-		@SuppressWarnings("resource")
 		Scanner nameScan = new Scanner(System.in);
 		
 		System.out.println("Welcome to the game !");
