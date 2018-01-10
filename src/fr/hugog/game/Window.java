@@ -73,19 +73,19 @@ public class Window extends JFrame implements ActionListener {
 		
 		gamePan.add(inGameHeroName);
 		
-		for (int i = 0; i < 20; i++) {
-			for (int j = 0; j < 20; j++) {
-				JLabel l = new JLabel("" + i, JLabel.CENTER);
-	            l.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-	            l.setFont(l.getFont().deriveFont(20f));
-	            gamePan.add(l);
-			}
-		}
-		
-	    this.setContentPane(gamePan);
+		this.generateGameMap();
 		
 		this.setVisible(true);
     }
+	
+	public void generateGameMap() {
+		for (int i = 0; i < 20; i++) {
+			for (int j = 0; j < 20; j++) {
+				JLabel l = new JLabel(i + " ", JLabel.CENTER);
+	            gamePan.add(l);
+			}
+		}
+	}
 	
 	public void actionPerformed(ActionEvent ae)
     {

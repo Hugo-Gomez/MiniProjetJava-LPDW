@@ -138,7 +138,7 @@ public class Map {
 			System.out.println();
 		}
 	}
-	
+
 	/**
      * Print the inventory of the hero and his health
      * 
