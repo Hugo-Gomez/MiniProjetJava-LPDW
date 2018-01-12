@@ -1,21 +1,18 @@
 package fr.hugog.game;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Graphics2D;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.BevelBorder;
 
 import fr.hugog.game.Element.Element;
 import fr.hugog.game.Element.Flower;
@@ -41,7 +38,6 @@ public class Window extends JFrame implements ActionListener {
 	JPanel gamePan = new GamePanel();
 	JLabel inGameHeroName = new JLabel("");
 	JLabel inventory = new JLabel("");
-	JLabel space = new JLabel("<html><br/><html>");
     JTextField nameInput = new JTextField("");
     JButton startBtn = new JButton("Go !");
     String heroName;
@@ -83,21 +79,18 @@ public class Window extends JFrame implements ActionListener {
     {
 		final String heroName = nameInput.getText();
 		gamePan.setLayout(new FlowLayout());
-		inGameHeroName.setForeground(Color.black); 
-		inGameHeroName.setText("<html><font color='red' size='20'>" + heroName + "'s Game</font></html>");
+		// gamePan.setLayout(new BorderLayout());
+		// inGameHeroName.setText("<html><font color='red' size='20'><div style='text-align: center;'>" + heroName + "'s Game</div></font></html>");
 		
 		Map map = new Map();
 		
 		Hero hero = (Hero) map.getMap()[0][0];
 
         this.setContentPane(gamePan);
-		
-		gamePan.add(inGameHeroName);
-		gamePan.add(space);
+			
+		// gamePan.add(inGameHeroName, BorderLayout.PAGE_START);
 		
 		this.generateGameMap();
-		
-		gamePan.add(space);
 		
 		this.printObjects(hero);
 		
@@ -159,15 +152,15 @@ public class Window extends JFrame implements ActionListener {
 	public void generateGameMap() {
 		for (int i = 0; i < 20; i++) {
 			for (int j = 0; j < 20; j++) {
-				JLabel l = new JLabel(this.map[i][j].getSymbol() + " ", JLabel.CENTER);
-	            gamePan.add(l);
+				JLabel element = new JLabel(this.map[i][j].getSymbol() + " ");
+	            gamePan.add(element);
 			}
 		}
 	}
 	
 	public void printObjects(Hero hero) {
 		inventory.setText("LifePoints : " + hero.getHealth() + " // Gold : " + hero.getGold() + " // Keys : " + hero.getKeys());
-		gamePan.add(inventory);
+		gamePan.add(inventory, BorderLayout.PAGE_END);
 	}
 	
 	public void actionPerformed(ActionEvent ae)

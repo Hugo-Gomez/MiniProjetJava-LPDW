@@ -3,10 +3,12 @@ package fr.hugog.game.Element;
 public class Element {
 
 	int x, y;
-	private String symbol; 
+	private String symbol;
+	private String imageElement; 
 
-	public Element(String symbol) {
+	public Element(String symbol, String imageElement) {
 		this.symbol = symbol;
+		this.imageElement = imageElement;
 	}
 	
 	/**
@@ -67,6 +69,16 @@ public class Element {
 
 	public void setY(int y) {
 		this.y = y;
+	}
+	
+	/**
+     * Return the image of an element
+     *
+     * @return imageElement
+     */
+
+	public String getImageElement() {
+		return imageElement;
 	}
 	
 }
