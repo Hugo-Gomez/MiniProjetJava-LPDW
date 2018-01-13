@@ -3,7 +3,7 @@ package fr.hugog.game.Element;
 public class Key extends Element{
 	
 	public Key() {
-		super("4");
+		super("4", "key-icon");
 	}
 
 }

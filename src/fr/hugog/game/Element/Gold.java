@@ -3,7 +3,7 @@ package fr.hugog.game.Element;
 public class Gold extends Element{
 
 	public Gold() {
-		super("5");
+		super("5", "gold-icon");
 	}
 	
 }

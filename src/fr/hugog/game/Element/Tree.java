@@ -3,7 +3,7 @@ package fr.hugog.game.Element;
 public class Tree extends Element{
 	
 	public Tree() {
-		super("2");
+		super("2", "tree-icon");
 	}
 
 }

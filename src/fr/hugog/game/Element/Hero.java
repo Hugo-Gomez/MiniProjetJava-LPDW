@@ -11,7 +11,7 @@ public class Hero extends Element {
 	private int locks = 0;
 	
 	public Hero() {
-		super("X");
+		super("X", "hero-icon");
 		this.health = 10;
 		this.gold = 0;
 		this.keys = 0;
