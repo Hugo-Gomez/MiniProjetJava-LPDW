@@ -1,7 +1,7 @@
 package fr.hugog.game;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,8 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import fr.hugog.game.Element.Element;
-
 public class Window extends JFrame implements ActionListener {
 	
 	/**
@@ -21,28 +19,25 @@ public class Window extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	
 	JPanel homePan = new HomePanel();
-	JPanel gamePan = new GamePanel();
+	GamePanel gamePan = new GamePanel();
 	JLabel inGameHeroName = new JLabel("");
 	JLabel inventory = new JLabel("");
     JTextField nameInput = new JTextField("");
     JButton startBtn = new JButton("Go !");
     String heroName;
-    
-    /**
-     * @see Element
-     */
-	Element[][] map;
 
 	public Window() 
 	{
-		//ArrayList<Element> elements = Map.initializeElement();
-		//this.map = initMap(elements);
 		this.setTitle("Game");
-		this.setSize(815, 837);
+		this.setSize(815, 900);
 		this.setLocationRelativeTo(null);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
+	
+	/**
+     * Print the home panel
+     */
 	public void printHomePan()
     {
 		startBtn.addActionListener(this);
@@ -61,23 +56,26 @@ public class Window extends JFrame implements ActionListener {
 		this.setVisible(true);
     }
 	
+	/**
+     * Print the game panel
+     */
+	
 	public void printGamePan()
     {
-		// final String heroName = nameInput.getText();
-		// gamePan.setLayout(new FlowLayout());
-		// gamePan.setLayout(new BorderLayout());
-		// inGameHeroName.setText("<html><font color='red' size='20'><div style='text-align: center;'>" + heroName + "'s Game</div></font></html>");
+		gamePan.setLayout(new BorderLayout());
+		
+		gamePan.printObjects(gamePan.getHero());
 
         this.setContentPane(gamePan);
-			
-		// gamePan.add(inGameHeroName, BorderLayout.PAGE_START);
-		
-		// this.setContentPane(new MapPanel());
-		
-		// this.printObjects(hero);
 		
 		this.setVisible(true);
     }
+	
+	/**
+     * Print the game panel when the user entered his name
+     * 
+     * @param ae
+     */
 	
 	public void actionPerformed(ActionEvent ae)
     {

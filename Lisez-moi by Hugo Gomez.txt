@@ -1,0 +1,19 @@
+Pour cette dernière partie, j'ai réussi à afficher plusieurs panel dans le même JFrame, afin d'avoir une page d'accueil et une page de jeu.
+J'ai essayer d'exploiter le nom du héro mais je n'ai pas eu le temps de m'en occuper (en terme de design).
+J'ai eu vraiment du mal à ré-exploiter ce que j'avais fait de base pour la partie graphique du jeu.
+
+Dans cette version graphique il est donc possible de lire les règles et entrer son nom. La carte s'affcihe correctement avec tout les éléments affiché aléatoirement, et sans
+problème d'auto-refresh lorsque la fenêtre est redimensionnée.
+
+Les images ont été faites par moi à partir d'images récupéré sur le net.
+
+Le GitHub du projet se trouve à cette adresse: https://github.com/Hugo-Gomez/MiniProjetJava-LPDW
+
+J'ai commencé à faire les KeyListener, et lorsque l'on appuie sur les flèches directionelles, la direction s'affiche dans la console.
+
+/!\ Si rien ne s'affiche dans la console lorsque vous appuyez sur les boutons, revenez sur eclipse, puis repassez sur la fenêtre de jeu, et normalement le problème est résolu.
+J'ai surement ce problème la personnellement car je travaille en dual screen et que ma console est sur un écran séparé de eclipse.
+
+/!\ Il est toujours possible de jouer au jeu en mode console.
+
+La javadoc à été généré et est à jour.
